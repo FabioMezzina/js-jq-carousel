@@ -1,29 +1,30 @@
-// references
-var images = $('.images');
-var imgPrecedente = $('.prev');
-var imgSuccessiva = $('.next');
-var shotList = $('.shots');
-// evento click per immagine precedente
-imgPrecedente.click( function() {
-  scroll('prec');
-});
-// evento click per immagine successiva
-imgSuccessiva.click( function() {
-  scroll('succ');
-});
-// evento scroll immagini con freccette tastiera
-$(document).keydown(function (event) {
-  switch (event.keyCode) {
-    case 37:
-      scroll('prec');
-      break;
-    case 39:
-      scroll('succ');
-      break;
-  }
-});
+$(document).ready(function () {
+  // references
+  var images = $('.images');
+  var imgPrecedente = $('.prev');
+  var imgSuccessiva = $('.next');
+  var shotList = $('.shots');
+  // evento click per immagine precedente
+  imgPrecedente.click( function() {
+    scroll('prec');
+  });
+  // evento click per immagine successiva
+  imgSuccessiva.click( function() {
+    scroll('succ');
+  });
+  // evento scroll immagini con freccette tastiera
+  $(document).keydown(function (event) {
+    switch (event.keyCode) {
+      case 37:
+        scroll('prec');
+        break;
+      case 39:
+        scroll('succ');
+        break;
+    }
+  });
 
-// DICHIARAZIONE FUNZIONE
+  // DICHIARAZIONE FUNZIONE
 function scroll (direction) {
   var imgAttuale = $('.images img.visible');
   var shotAttuale = $('.shots li.active');
@@ -54,3 +55,6 @@ function scroll (direction) {
     }
   }
 }
+});
+
+
