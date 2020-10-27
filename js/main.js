@@ -2,7 +2,7 @@
 var images = $('.images');
 var imgPrecedente = $('.prev');
 var imgSuccessiva = $('.next');
-var shots = $('.shots');
+var shotList = $('.shots');
 // evento click per immagine precedente
 imgPrecedente.click( function() {
   scroll('prec');
@@ -26,14 +26,13 @@ $(document).keydown(function (event) {
 // DICHIARAZIONE FUNZIONE
 function scroll (direction) {
   var imgAttuale = $('.images img.visible');
-  var shotAttuale = $('.shots li.active')
+  var shotAttuale = $('.shots li.active');
   if (direction === 'prec') {
     if (imgAttuale.hasClass('first')) {
       imgAttuale.removeClass('visible');
       shotAttuale.removeClass('active');
       images.find('img.last').addClass('visible');
-      shots.find('li.last').addClass('active');
-
+      shotList.find('li.last').addClass('active');
     } else {
       imgAttuale.removeClass('visible');
       shotAttuale.removeClass('active');
@@ -46,7 +45,7 @@ function scroll (direction) {
       imgAttuale.removeClass('visible');
       shotAttuale.removeClass('active');
       images.find('img.first').addClass('visible');
-      shots.find('li.first').addClass('active');
+      shotList.find('li.first').addClass('active');
     } else {
       imgAttuale.removeClass('visible');
       shotAttuale.removeClass('active');

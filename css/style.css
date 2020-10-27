@@ -11,7 +11,7 @@ body {
 }
 
 /* TYPOGRAPHY */
-.scroll a,
+a,
 li {
   color: rgb(32, 178, 170);
   cursor: pointer;
