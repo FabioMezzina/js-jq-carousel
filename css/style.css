@@ -11,12 +11,30 @@ body {
 }
 
 /* TYPOGRAPHY */
-a {
-  color: lightseagreen;
+.scroll a,
+li {
+  color: rgb(32, 178, 170);
   cursor: pointer;
 }
 
-/* CAROUSEL MAIN SECTION */
+/* UTILITIES */
+.visible {
+  display: block;
+}
+
+body li.active {
+  color: rgb(32, 178, 170);
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline-block;
+}
+
+/* CAROUSEL MAIN */
 .carousel {
   display: flex;
   justify-content: center;
@@ -27,12 +45,12 @@ a {
   width: 100%;
 }
 
-/* SCROLL SECTION */
+/* SCROLL */
 .scroll {
   font-size: 50px;
 }
 
-/* IMAGES SECTION */
+/* IMAGES */
 .images {
   width: 640px;
   height: 426px;
@@ -43,6 +61,21 @@ img {
   display: none;
 }
 
-.visible {
-  display: block;
+/* SCROLL A PALLINI */
+.shots {
+  position: absolute;
+  right: 50%;
+  bottom: 30px;
+  transform: translateX(50%);
+  padding: 15px 20px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.shots li:not(:last-of-type) {
+  margin-right: 15px;
+}
+
+.shots li {
+  color: rgba(32, 178, 170, .3);
 }

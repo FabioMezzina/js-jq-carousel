@@ -2,6 +2,7 @@
 var images = $('.images');
 var imgPrecedente = $('.prev');
 var imgSuccessiva = $('.next');
+var shots = $('.shots');
 // evento click per immagine precedente
 imgPrecedente.click( function() {
   scroll('prec');
@@ -25,22 +26,32 @@ $(document).keydown(function (event) {
 // DICHIARAZIONE FUNZIONE
 function scroll (direction) {
   var imgAttuale = $('.images img.visible');
+  var shotAttuale = $('.shots li.active')
   if (direction === 'prec') {
     if (imgAttuale.hasClass('first')) {
       imgAttuale.removeClass('visible');
+      shotAttuale.removeClass('active');
       images.find('img.last').addClass('visible');
+      shots.find('li.last').addClass('active');
+
     } else {
       imgAttuale.removeClass('visible');
+      shotAttuale.removeClass('active');
       imgAttuale.prev('img').addClass('visible');
+      shotAttuale.prev('li').addClass('active');
     }
   } 
   else if (direction === 'succ') {
     if (imgAttuale.hasClass('last')) {
       imgAttuale.removeClass('visible');
+      shotAttuale.removeClass('active');
       images.find('img.first').addClass('visible');
+      shots.find('li.first').addClass('active');
     } else {
       imgAttuale.removeClass('visible');
+      shotAttuale.removeClass('active');
       imgAttuale.next('img').addClass('visible');
+      shotAttuale.next('li').addClass('active');
     }
   }
 }
