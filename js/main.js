@@ -26,17 +26,16 @@ $(document).ready(function () {
   });
 
   // evento scroll cliccando sui pallini
-  $('li.one').click( function() {
-    shotScroll(1);
-  });
-  $('li.two').click( function() {
-    shotScroll(2);
-  });
-  $('li.three').click( function() {
-    shotScroll(3);
-  });
-  $('li.four').click( function() {
-    shotScroll(4);
+  var pallini = $('.shots li');
+  pallini.click( function() {
+    var imgAttuale = $('.images img.visible');
+    var shotAttuale = $('.shots li.active');
+    imgAttuale.removeClass('visible');
+    shotAttuale.removeClass('active');
+    var index = $(this).index();
+    $(this).addClass('active');
+    imgAttuale = $('.images img').eq(index);
+    imgAttuale.addClass('visible');
   });
 
   // DICHIARAZIONE FUNZIONE
@@ -79,35 +78,4 @@ $(document).ready(function () {
       }
     }
   }
-
-  /**
-   * Al click di un pallino, effettua uno scroll di immagini fino ad arrivare a quella desiderata
-   * @param {number} j posizione relativa all'immagine da visualizzare
-   */
-  function shotScroll(j) {
-    var imgAttuale = $('.images img.visible');
-    var shotAttuale = $('.shots li.active');
-    if (j > index) {
-      while (j > index) {
-        imgAttuale.removeClass('visible');
-        shotAttuale.removeClass('active');
-        imgAttuale.next('img').addClass('visible');
-        shotAttuale.next('li').addClass('active');
-        imgAttuale = $('.images img.visible');
-        shotAttuale = $('.shots li.active');
-        index++;
-      }
-    } else if (j < index) {
-      while (j < index) {
-        imgAttuale.removeClass('visible');
-        shotAttuale.removeClass('active');
-        imgAttuale.prev('img').addClass('visible');
-        shotAttuale.prev('li').addClass('active');
-        imgAttuale = $('.images img.visible');
-        shotAttuale = $('.shots li.active');
-        index--;
-      }
-    }
-  }
-
 });
