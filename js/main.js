@@ -4,7 +4,6 @@ $(document).ready(function () {
   var imgPrecedente = $('.prev');
   var imgSuccessiva = $('.next');
   var shotList = $('.shots');
-  var index = 1;
   // evento click per immagine precedente
   imgPrecedente.click( function() {
     scroll('prec');
@@ -53,13 +52,11 @@ $(document).ready(function () {
         shotAttuale.removeClass('active');
         images.find('img.last').addClass('visible');
         shotList.find('li.last').addClass('active');
-        index = 4;
       } else {
         imgAttuale.removeClass('visible');
         shotAttuale.removeClass('active');
         imgAttuale.prev('img').addClass('visible');
         shotAttuale.prev('li').addClass('active');
-        index--;
       }
     } 
     else if (direction === 'succ') {
@@ -68,13 +65,11 @@ $(document).ready(function () {
         shotAttuale.removeClass('active');
         images.find('img.first').addClass('visible');
         shotList.find('li.first').addClass('active');
-        index = 1;
       } else {
         imgAttuale.removeClass('visible');
         shotAttuale.removeClass('active');
         imgAttuale.next('img').addClass('visible');
         shotAttuale.next('li').addClass('active');
-        index++;
       }
     }
   }
